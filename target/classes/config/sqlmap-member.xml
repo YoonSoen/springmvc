@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="boardDao"> 
+	<select id="count" resultType="integer">
+		SELECT COUNT(*) FROM BOARD;
+	</select>
+	<insert id="write" >
+		insert into Board(num, writer, subject, content, readcount, ref, restep, relevel)
+			values(Board_seq.NEXTVAL, ?, ?, ?, 0, Board_seq.CURRVAL, 0, 0 );
+	</insert>
+	<select id="list">
+		SELECT NUM, WRITER, SUBJECT, DATE, READCOUNT FROM Board order by ref desc, restep asc;
+	</select>
+	<select id="contentView" >
+		select * from Board where id = #{id}
+	</select>
+	<update id="readCount">
+		UPDATE Board SET ReadCount=ReadCount+1 WHERE no = #{no}
+	</update>
+	<update id="modify">
+		update Board set Subject=#{subject}, Content=#{content} where no = #{no}
+	</update>
+	<delete id="delete">
+		delete from Board where no = #{no}
+	</delete>
+	<select id="replyView">
+		select * from Board where no = #{no}
+	</select>
+	<insert id="reply">
+		insert into Board(Num, Writer, Subject, Content, readcount, Ref, Restep, Relevel) values(Board_seq.NEXTVAL,?, ?, ?, 0, ?, ?, ? )
+	</insert>
+	<update id="replyUpdate">
+		update Board set Restep=Restep+1 where Ref=? and Restep > ?
+	</update>
+
+</mapper>
