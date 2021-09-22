@@ -21,7 +21,7 @@
 		<td>번호</td>
 		<td>이름</td>
 		<td>제목</td>
-		<td>날짜</td>
+		<td>작성일</td>
 		<td>조회수</td>
 	</tr>
 	
@@ -29,15 +29,14 @@
 	<c:forEach var="Board" items="${list}"> 
 	<tr>
 		
-		<td>${Board.num}</td> 
-		<td>${Board.writer}</td> 
+		<td>${board.no}</td> 
+		<td>${board.writer}</td> 
 		<td>
 			
-			<c:forEach begin="1" end="${Board.relevel}"><span class="relevel">[re]</span></c:forEach>
-			<a href="content.do?num=${Board.num}">${Board.Subject}</a>
+			<a href="content.do?num=${board.no}">${board.title}</a>
 		</td> 
-		<td><fmt:formatDate value="${Board.date}" pattern="yyyy-MM-dd" /></td> 
-		<td>${Board.readcount}</td> 
+		<td><fmt:formatDate value="${board.regdate}" pattern="yyyy-MM-dd" /></td> 
+		<td>${board.viewcnt}</td> 
 	</tr>
 	</c:forEach>
 	<tr>

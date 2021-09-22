@@ -13,33 +13,32 @@
 	<form action="modify.do" method="post">
 		<table style="width:500px;">
 			<%-- bIdx hidden --%>
-			<input type="hidden" name="num" value="${content.num}" />
+			<input type="hidden" name="no" value="${board.no}" />
 			
 			<tr>
 				<td>번호</td>
-				<td>${content.num}</td>
+				<td>${board.no}</td>
 			</tr>
 			<tr>
 				<td>조회수</td>
-				<td>${content.readcount}</td>
+				<td>${board.viewcnt}</td>
 			</tr>
 			<tr>
 				<td>이름</td>
-				<td><input type="text" name="writer" value="${content.writer}"></td>	
+				<td><input type="text" name="writer" value="${board.writer}"></td>	
 			</tr>
 			<tr>
 				<td>제목</td>
-				<td><input type="text" name="subject" value="${content.subject}"></td>
+				<td><input type="text" name="subject" value="${board.title}"></td>
 			</tr>
 			<tr>
 				<td>내용</td>
-				<td><textarea rows="10" name="content">${content.content}</textarea></td>
+				<td><textarea rows="10" name="content">${board.content}</textarea></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="수정">&nbsp;&nbsp;
 					<a href="list.do">목록보기</a>&nbsp;&nbsp;
-					<a href="delete.do?num=${content.num}">삭제</a>&nbsp;&nbsp;
-					<a href="reply.do?num=${content.num}">답변</a>
+					<a href="delete.do?no=${board.no}">삭제</a>&nbsp;&nbsp;
 				</td>
 			</tr>
 			

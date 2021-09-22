@@ -17,7 +17,7 @@
 		
 		<tr>
 			<td>제목</td>
-			<td><input type="text" name="subject" size="50"></td>
+			<td><input type="text" name="title" size="50"></td>
 		</tr>
 		
 		<tr>

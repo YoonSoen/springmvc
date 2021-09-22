@@ -5,19 +5,25 @@ import java.util.Date;
 
 import org.apache.ibatis.type.Alias;
 
-@Alias("BoaedDto")
+@Alias("BoardDto")
 public class BoardDto {
 	/*
-	 * CREATE TABLE "Board"( "Num" NUMBER PRIMARY KEY, --글번호 "Writer" VARCHAR2(50),
-	 * --작성자 "Subject" VARCHAR2(50), --글제목 "Content" VARCHAR2(1000), --글내용 "Date"
-	 * DATE default sysdate, --작성일 "ReadCount" NUMBER default 0, --조회수 "Ref" NUMBER
-	 * default 0, --계층형게시판, 글의 그룹 "Restep" NUMBER default 0, --계층형게시판, 글의 순서(order)
-	 * "Relevel" NUMBER default 0 --계층형게시판, 글의 레벨 );
-	 * 
-	 * CREATE SEQUENCE Board_SEQ START WITH 1 INCREMENT BY 1 MAXVALUE 10000 MINVALUE
-	 * 1 NOCYCLE;
-	 * 
-	 * commit;
+	 * CREATE TABLE board(
+			no NUMBER PRIMARY KEY,
+			 title VARCHAR2(1000),
+		     content VARCHAR2(1000),
+			 regdate  DATE default sysdate,
+			 viewcnt NUMBER default 0
+		     );
+		     
+		     CREATE SEQUENCE board_SEQ 
+		     START WITH 1 
+		     INCREMENT BY 1
+		     MAXVALUE 10000 
+		     MINVALUE
+			 1 NOCYCLE;
+			 
+		    commit;
 	 */
 
 	private int no;
