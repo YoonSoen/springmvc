@@ -7,42 +7,37 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>list.jsp</title>
-<style>
-	table{border-collapse: collapse;}
-	table, td, th{border:1px solid black;}
-	span.brelevel{font-size:7px;color:red;}
-</style>
+<title>List</title>
 </head>
 <body>
-
-<table style="width:500px;">
-	<tr>
-		<td>번호</td>
-		<td>이름</td>
-		<td>제목</td>
-		<td>작성일</td>
-		<td>조회수</td>
-	</tr>
-	
-	
-	<c:forEach var="Board" items="${list}"> 
-	<tr>
-		
-		<td>${board.no}</td> 
-		<td>${board.writer}</td> 
-		<td>
-			
-			<a href="content.do?num=${board.no}">${board.title}</a>
-		</td> 
-		<td><fmt:formatDate value="${board.regdate}" pattern="yyyy-MM-dd" /></td> 
-		<td>${board.viewcnt}</td> 
-	</tr>
-	</c:forEach>
-	<tr>
-		<td colspan="5"><a href="write.do">글작성</a></td>
-	</tr>
-</table>
-
+ 
+<h2> 게시글 목록 </h2>
+ 
+<button class="btn btn-primary" onclick="location.href='/insert'">글쓰기</button>
+ 
+<div class="container">
+    <table class="table table-hover">
+        <tr>
+            <th>No</th>
+            <th>Subject</th>
+            <th>Writer</th>
+            <th>Date</th>
+        </tr>
+          <c:forEach var="l" items="${list}">
+              <tr onclick="location.href='/detail/${l.no}'">
+                  <td>${l.no}</td>
+                  <td>${l.title}</td>
+                  <td>${l.writer}</td>
+                  <td>${l.regdate}</td>
+              </tr>
+          </c:forEach>
+          
+    </table>
+</div>
+ 
+ 
+<%@ include file="design.jsp" %>
 </body>
 </html>
+
+
